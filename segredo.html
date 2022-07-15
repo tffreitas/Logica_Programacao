@@ -1,35 +1,40 @@
 <meta charset="UTF-8">
 
 <input/>
-<button>TENTE DESCOBRIR O NÚMERO</button>
+<button>Compare com o meu segredo</button>
 
 <script>
-	
-	var segredo = Math.round(Math.random() * 10);
-	var input = document.querySelector("input");
-	input.focus();
 
-	function verifica() {
+    var segredos = [5,7,10,2,3];
 
-		if(input.value == segredo) {
+    var input = document.querySelector("input");
+        input.focus();
 
-			alert("Você ACERTOU!!");
-		}	else {
+    function verifica() {
 
-				alert("Você ERROU!!!");
-			}
-		
+    var achou = false;
 
-		input.value = "";
-		input.focus();
-	}
+    for(var posicao = 0; posicao < segredos.length; posicao++) {
 
-	var button = document.querySelector("button");
+        if(input.value == segredos[posicao]) {
 
-	button.onclick = verifica;
+            alert("Você ACERTOU!");
+            achou = true;
+            break;
+        }
+    }
 
+    if(achou == false) {
+        alert("Você ERROU!");
+    }
 
+    input.value = "";
+    input.focus();
 
+    }
 
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
 
 </script>
